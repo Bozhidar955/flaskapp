@@ -1,14 +1,18 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello! My Flask app is running."
+    return render_template("index.html")
 
-@app.route("/health")
-def health():
-    return {"status": "healthy"}
+@app.route("/picture")
+def pic():
+    return render_template("index.html")
+
+@app.route("/pragmatic")
+def salvador():
+    return "Hello, pragmatic!"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port = 5001, debug=True)
