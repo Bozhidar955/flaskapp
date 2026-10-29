@@ -1,25 +1,26 @@
+
 name: My First CI Pipeline
 
 on:
-   push:
+  push:
     branches:
-        -master
-        -main
-    pull_request:
-        branches:
-           -master
-           -main
-jobs:
-    test:
-        runs-on: ubuntu latest
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
 
+jobs:
+  test:
+    runs-on: ubuntu-latest
     steps:
-        -name: Downloads Repository code
+      - name: Download repository code
         uses: actions/checkout@v4
 
-        -name: Show project files
+      - name: Show project files
         run: ls -la
 
-        -name: Print success message
-        run: echo "CI Pipeline is working"
-     
+      - name: Print success message
+        run: echo "CI pipeline is working!"
+
